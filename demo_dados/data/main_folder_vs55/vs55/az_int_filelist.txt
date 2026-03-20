@@ -1,0 +1,131 @@
+/ibira/lnls/beamlines/paineira/proposals/00000000/data/pimega_450d/2025/february/main_folder_vs55/vs55
+['vs55_RAMP_296Kelvin_128.hdf5', 'vs55_RAMP_296Kelvin_step_129.hdf5']
+1
+['vs55_RAMP_285Kelvin_130.hdf5', 'vs55_RAMP_285Kelvin_step_131.hdf5']
+1
+['vs55_RAMP_279Kelvin_132.hdf5', 'vs55_RAMP_279Kelvin_step_133.hdf5']
+1
+['vs55_RAMP_272Kelvin_134.hdf5', 'vs55_RAMP_272Kelvin_step_135.hdf5']
+1
+['vs55_RAMP_263Kelvin_136.hdf5', 'vs55_RAMP_263Kelvin_step_137.hdf5']
+1
+['vs55_RAMP_254Kelvin_138.hdf5', 'vs55_RAMP_254Kelvin_step_139.hdf5']
+1
+['vs55_RAMP_244Kelvin_140.hdf5', 'vs55_RAMP_244Kelvin_step_141.hdf5']
+1
+['vs55_RAMP_234Kelvin_142.hdf5', 'vs55_RAMP_234Kelvin_step_143.hdf5']
+1
+['vs55_RAMP_224Kelvin_144.hdf5', 'vs55_RAMP_224Kelvin_step_145.hdf5']
+1
+['vs55_RAMP_212Kelvin_146.hdf5', 'vs55_RAMP_212Kelvin_step_147.hdf5']
+1
+['vs55_RAMP_200Kelvin_148.hdf5', 'vs55_RAMP_200Kelvin_step_149.hdf5']
+1
+['vs55_RAMP_188Kelvin_150.hdf5', 'vs55_RAMP_188Kelvin_step_151.hdf5']
+1
+['vs55_RAMP_176Kelvin_152.hdf5', 'vs55_RAMP_176Kelvin_step_153.hdf5']
+1
+['vs55_RAMP_166Kelvin_154.hdf5', 'vs55_RAMP_166Kelvin_step_155.hdf5']
+1
+['vs55_RAMP_156Kelvin_156.hdf5', 'vs55_RAMP_156Kelvin_step_157.hdf5']
+1
+['vs55_RAMP_146Kelvin_158.hdf5', 'vs55_RAMP_146Kelvin_step_159.hdf5']
+1
+['vs55_RAMP_137Kelvin_160.hdf5', 'vs55_RAMP_137Kelvin_step_161.hdf5']
+1
+['vs55_RAMP_129Kelvin_162.hdf5', 'vs55_RAMP_129Kelvin_step_163.hdf5']
+1
+['vs55_RAMP_121Kelvin_164.hdf5', 'vs55_RAMP_121Kelvin_step_165.hdf5']
+1
+['vs55_RAMP_114Kelvin_166.hdf5', 'vs55_RAMP_114Kelvin_step_167.hdf5']
+1
+['vs55_RAMP_107Kelvin_168.hdf5', 'vs55_RAMP_107Kelvin_step_169.hdf5']
+1
+['vs55_RAMP_102Kelvin_170.hdf5', 'vs55_RAMP_102Kelvin_step_171.hdf5']
+1
+['vs55_RAMP_096Kelvin_172.hdf5', 'vs55_RAMP_096Kelvin_step_173.hdf5']
+1
+['vs55_RAMP_092Kelvin_174.hdf5', 'vs55_RAMP_092Kelvin_step_175.hdf5']
+1
+['vs55_RAMP_088Kelvin_176.hdf5', 'vs55_RAMP_088Kelvin_step_177.hdf5']
+1
+['vs55_RAMP_084Kelvin_178.hdf5', 'vs55_RAMP_084Kelvin_step_179.hdf5']
+1
+['vs55_RAMP_081Kelvin_180.hdf5', 'vs55_RAMP_081Kelvin_step_181.hdf5']
+1
+['vs55_080Kelvin_182.hdf5', 'vs55_080Kelvin_step_183.hdf5']
+1
+['vs55_081Kelvin_184.hdf5', 'vs55_081Kelvin_step_185.hdf5']
+1
+['vs55_RAMP_082Kelvin_186.hdf5', 'vs55_RAMP_082Kelvin_step_187.hdf5']
+1
+['vs55_RAMP_086Kelvin_188.hdf5', 'vs55_RAMP_086Kelvin_step_189.hdf5']
+1
+['vs55_RAMP_093Kelvin_190.hdf5', 'vs55_RAMP_093Kelvin_step_191.hdf5']
+1
+['vs55_RAMP_100Kelvin_192.hdf5', 'vs55_RAMP_100Kelvin_step_193.hdf5']
+1
+['vs55_RAMP_106Kelvin_194.hdf5', 'vs55_RAMP_106Kelvin_step_195.hdf5']
+1
+['vs55_RAMP_112Kelvin_196.hdf5', 'vs55_RAMP_112Kelvin_step_197.hdf5']
+1
+['vs55_RAMP_118Kelvin_198.hdf5', 'vs55_RAMP_118Kelvin_step_199.hdf5']
+1
+['vs55_RAMP_125Kelvin_200.hdf5', 'vs55_RAMP_125Kelvin_step_201.hdf5']
+1
+['vs55_RAMP_131Kelvin_202.hdf5', 'vs55_RAMP_131Kelvin_step_203.hdf5']
+1
+['vs55_RAMP_138Kelvin_204.hdf5', 'vs55_RAMP_138Kelvin_step_205.hdf5']
+1
+['vs55_RAMP_144Kelvin_206.hdf5', 'vs55_RAMP_144Kelvin_step_207.hdf5']
+1
+['vs55_RAMP_150Kelvin_208.hdf5', 'vs55_RAMP_150Kelvin_step_209.hdf5']
+1
+['vs55_RAMP_156Kelvin_210.hdf5', 'vs55_RAMP_156Kelvin_step_211.hdf5']
+1
+['vs55_RAMP_163Kelvin_212.hdf5', 'vs55_RAMP_163Kelvin_step_213.hdf5']
+1
+['vs55_RAMP_169Kelvin_214.hdf5', 'vs55_RAMP_169Kelvin_step_215.hdf5']
+1
+['vs55_RAMP_175Kelvin_216.hdf5', 'vs55_RAMP_175Kelvin_step_217.hdf5']
+1
+['vs55_RAMP_182Kelvin_218.hdf5', 'vs55_RAMP_182Kelvin_step_219.hdf5']
+1
+['vs55_RAMP_188Kelvin_220.hdf5', 'vs55_RAMP_188Kelvin_step_221.hdf5']
+1
+['vs55_RAMP_194Kelvin_222.hdf5', 'vs55_RAMP_194Kelvin_step_223.hdf5']
+1
+['vs55_RAMP_200Kelvin_224.hdf5', 'vs55_RAMP_200Kelvin_step_225.hdf5']
+1
+['vs55_RAMP_207Kelvin_226.hdf5', 'vs55_RAMP_207Kelvin_step_227.hdf5']
+1
+['vs55_RAMP_213Kelvin_228.hdf5', 'vs55_RAMP_213Kelvin_step_229.hdf5']
+1
+['vs55_RAMP_219Kelvin_230.hdf5', 'vs55_RAMP_219Kelvin_step_231.hdf5']
+1
+['vs55_RAMP_226Kelvin_232.hdf5', 'vs55_RAMP_226Kelvin_step_233.hdf5']
+1
+['vs55_RAMP_232Kelvin_234.hdf5', 'vs55_RAMP_232Kelvin_step_235.hdf5']
+1
+['vs55_RAMP_238Kelvin_236.hdf5', 'vs55_RAMP_238Kelvin_step_237.hdf5']
+1
+['vs55_RAMP_245Kelvin_238.hdf5', 'vs55_RAMP_245Kelvin_step_239.hdf5']
+1
+['vs55_RAMP_251Kelvin_240.hdf5', 'vs55_RAMP_251Kelvin_step_241.hdf5']
+1
+['vs55_RAMP_257Kelvin_242.hdf5', 'vs55_RAMP_257Kelvin_step_243.hdf5']
+1
+['vs55_RAMP_264Kelvin_244.hdf5', 'vs55_RAMP_264Kelvin_step_245.hdf5']
+1
+['vs55_RAMP_270Kelvin_246.hdf5', 'vs55_RAMP_270Kelvin_step_247.hdf5']
+1
+['vs55_RAMP_276Kelvin_248.hdf5', 'vs55_RAMP_276Kelvin_step_249.hdf5']
+1
+['vs55_RAMP_283Kelvin_250.hdf5', 'vs55_RAMP_283Kelvin_step_251.hdf5']
+1
+['vs55_RAMP_289Kelvin_252.hdf5', 'vs55_RAMP_289Kelvin_step_253.hdf5']
+1
+['vs55_RAMP_295Kelvin_254.hdf5', 'vs55_RAMP_295Kelvin_step_255.hdf5']
+1
+['vs55_300Kelvin_256.hdf5', 'vs55_300Kelvin_step_257.hdf5']
+0
