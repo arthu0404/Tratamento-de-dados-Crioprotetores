@@ -43,7 +43,34 @@ def extrair_dados_proc(path_proc, periodo_aqu):
 
 # ------------------------------------------------------------------------
 
+def corrigir_anomalia(target_2theta, tol_2theta, idx_range, df_proc):
+    df_proc_tratado = df_proc.copy()
+    
+    for i, linha in df_proc.iterrows():
+        df_interno = linha["dados"]
 
+        mask = (df_interno["2theta (degree)"] >= target_2theta - tol_2theta) & \
+            (df_interno["2theta (degree)"] <= target_2theta + tol_2theta)
+    
+        idx_max = df_interno.loc[mask, "Intensity (a.u.)"].idxmax()
+        pos_max = df_interno.index.get_loc(idx_max)
+
+        if idx_range - 1 < pos_max < len(df_interno) - idx_range:
+            idx_inicio, idx_fim =  pos_max - idx_range, pos_max + idx_range
+
+            val_antes = df_interno.iloc[idx_inicio]["Intensity (a.u.)"]
+            val_depois = df_interno.iloc[idx_fim]["Intensity (a.u.)"]
+
+            n_pontos = idx_fim - idx_inicio + 1
+            novos_vals = np.linspace(val_antes, val_depois, n_pontos)
+
+            col_idx = df_interno.columns.get_loc("Intensity (a.u.)")
+                
+            df_interno.iloc[idx_inicio : idx_fim + 1, col_idx] = novos_vals
+
+            df_proc_tratado.at[i, "dados"] = df_interno
+
+    return df_proc_tratado
 
 # ------------------------------------------------------------------------
 
