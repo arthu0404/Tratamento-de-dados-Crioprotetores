@@ -24,10 +24,10 @@ def extrair_dados_proc(path_proc, periodo_aqu):
         df = pd.read_csv(path_arquivo_csv, skiprows=17  )
         nome = os.path.basename(path_arquivo_csv).replace(".csv", "")
 
-        if "RAMP" in nome:
-            temp = nome.split("_")[2].replace("Kelvin", "")
-        else:
-            temp = nome.split("_")[1].replace("Kelvin", "")
+        partes = nome.split("_")
+        for parte in partes:
+            if "Kelvin" in parte:
+                temp = parte.replace("Kelvin", "")
 
         step = int(nome.split("_")[-2])
 
@@ -40,6 +40,10 @@ def extrair_dados_proc(path_proc, periodo_aqu):
     df_proc["tempo_decorrido[s]"] = df_proc.index * periodo_aqu
 
     return df_proc
+
+# ------------------------------------------------------------------------
+
+
 
 # ------------------------------------------------------------------------
 
