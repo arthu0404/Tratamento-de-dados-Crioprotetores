@@ -12,18 +12,16 @@ def extrair_dados_proc(path_proc, periodo_aqu):
 
     Parâmetros:
     - path_proc: caminho da pasta com os arquivos CSV
-    - periodo_aqu: o período de aquisição (s)
+    - periodo_aqu: período de aquisição em segundos
 
     Retorna:
-    - df_proc: dataframe com colunas:
-        ["nome", "temperatura[K]", "step", "dados", "tempo_decorrido[s]"]
+    - df_proc: DataFrame com colunas ["nome", "temperatura[K]", "step", "dados", "tempo_decorrido[s]"]
     """
 
     files_data_proc = []
 
     for path_arquivo_csv in glob(f"{path_proc}/*.csv"):
-        df = pd.read_csv(path_arquivo_csv)
-        
+        df = pd.read_csv(path_arquivo_csv, skiprows=17  )
         nome = os.path.basename(path_arquivo_csv).replace(".csv", "")
 
         if "RAMP" in nome:
@@ -34,17 +32,11 @@ def extrair_dados_proc(path_proc, periodo_aqu):
         step = int(nome.split("_")[-2])
 
         files_data_proc.append(
-            {
-                "nome": nome,
-                "temperatura[K]": float(temp),
-                "step": step,
-                "dados": df
-            }
+            {"nome": nome, "temperatura[K]": float(temp), "step": step, "dados": df}
         )
 
     df_proc = pd.DataFrame(files_data_proc)
     df_proc = df_proc.sort_values(by="step").reset_index(drop=True)
-
     df_proc["tempo_decorrido[s]"] = df_proc.index * periodo_aqu
 
     return df_proc
@@ -188,72 +180,64 @@ def plot_difracao(df_proc_final, titulo, offset_step=1e10, usar_steps=False):
     """
 
     temperaturas = df_proc_final["temperatura[K]"].values
-    temp_min = temperaturas.min()
-    temp_max = temperaturas.max()
-
+    temp_min = min(temperaturas)
+    temp_max = max(temperaturas)
+    
     norm = mcolors.Normalize(vmin=temp_min, vmax=temp_max)
     cmap = plt.colormaps.get_cmap("viridis")
-
+    
     offset = 0
-
     fig = plt.figure(figsize=(13, 20), dpi=600)
     ax1 = fig.add_subplot(1, 1, 1)
-
+    
     offsets = []
-    labels = []
-
-    for _, linha in df_proc_final.iterrows():
+    labels_y = []
+    
+    for i, linha in df_proc_final.iterrows():
         temp = linha["temperatura[K]"]
-        step = linha["step"]
         df = linha["dados"]
-
         X = df["2theta (degree)"]
-        y = df["Intensity"]
-
+        y = df["Intensity (a.u.)"]
         cor = cmap(norm(temp))
         ax1.plot(X, y + offset, linewidth=0.9, color=cor)
-
+        
         offsets.append(offset)
-
         if usar_steps:
-            labels.append(f"{step}")
+            labels_y.append(str(linha["step"]))
         else:
-            labels.append(f"{temp:.3f}")
-
+            labels_y.append(f"{temp:.3f}")
         offset += offset_step
-
-    ax1.set_title(titulo, fontsize=16)
+    
+    # Configurações do gráfico
+    plt.title(titulo, fontsize=16)
     ax1.set_xlabel("2theta (degree)")
     ax1.set_ylabel("Intensity + offset (a.u.)")
-
-    ax1.set_xlim(left=0)
-    ax1.set_ylim(0, offset)
-
+    ax1.set_xlim(0)
+    ax1.set_ylim(bottom=0, top=offset)
     ax1.set_yticks([])
+    
     ax1.xaxis.set_minor_locator(AutoMinorLocator())
     ax1.yaxis.set_minor_locator(AutoMinorLocator())
-
     ax1.tick_params(which="major", direction="out", length=7, width=1.2)
     ax1.tick_params(which="minor", direction="out", length=4, width=0.8)
-
     ax1.grid(which="major", linestyle="--", linewidth=0.5, alpha=0.4)
-
+    
+    # Eixo y à direita
     ax2 = ax1.twinx()
     ax2.set_ylim(ax1.get_ylim())
     ax2.set_yticks(offsets)
-    ax2.set_yticklabels(labels, fontsize=10)
-
+    ax2.set_yticklabels(labels_y, fontsize=10)
     if usar_steps:
         ax2.set_ylabel("Steps (a.u.)", labelpad=10)
     else:
         ax2.set_ylabel("Temperature [K]", labelpad=10)
-
+    
+    # Colorbar
     sm = plt.cm.ScalarMappable(cmap=cmap, norm=norm)
     cbar = fig.colorbar(sm, ax=ax1, pad=0.12, aspect=25)
     cbar.set_label("Temperature (K)", labelpad=10)
-
     cbar.ax.yaxis.set_minor_locator(AutoMinorLocator())
     cbar.ax.tick_params(which="major", direction="out", length=5, width=1)
     cbar.ax.tick_params(which="minor", direction="out", length=3, width=0.8)
-
+    
     plt.show()
