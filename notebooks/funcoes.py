@@ -4,6 +4,7 @@ from glob import glob
 import matplotlib.pyplot as plt
 import matplotlib.colors as mcolors
 from matplotlib.ticker import AutoMinorLocator
+import seaborn as sns
 import os
 
 def extrair_dados_proc(path_proc, periodo_aqu):
@@ -44,6 +45,19 @@ def extrair_dados_proc(path_proc, periodo_aqu):
 # ------------------------------------------------------------------------
 
 def corrigir_anomalia(target_2theta, tol_2theta, idx_range, df_proc):
+    """
+    Substitui uma região de anomalia por uma interpolação linear.
+
+    Parâmetros:
+    - target_2theta: valor central de 2-theta onde a anomalia se encontra
+    - tol_2theta: tolerância para busca do pico máximo da anomalia
+    - idx_range: número de índices para antes e depois do pico para aplicar a correção
+    - df_proc: DataFrame processado contendo os DataFrames internos em 'dados'
+
+    Retorna:
+    - df_proc_tratado: DataFrame com as intensidades corrigidas na região especificada
+    """
+
     df_proc_tratado = df_proc.copy()
     
     for i, linha in df_proc.iterrows():
@@ -271,4 +285,78 @@ def plot_difracao(df_proc_final, titulo, offset_step=1e10, usar_steps=False):
     cbar.ax.tick_params(which="major", direction="out", length=5, width=1)
     cbar.ax.tick_params(which="minor", direction="out", length=3, width=0.8)
     
+    plt.show()
+
+# ------------------------------------------------------------------------
+
+def plot_matriz_corr(target_temp, tol_temp, target_2theta, tol_2theta, df_proc_final, titulo=None, skip_steps=0):
+    """
+    Gera um heatmap da matriz de correlação de Pearson para faixas específicas de temperatura e ângulo.
+
+    Parâmetros:
+    - target_temp: temperatura central de interesse
+    - tol_temp: tolerância para filtro de temperatura
+    - target_2theta: ângulo 2-theta central de interesse
+    - tol_2theta: tolerância para filtro de ângulo
+    - df_proc_final: DataFrame processado com as colunas ["temperatura[K]", "step", "dados"]
+    - titulo: título opcional do gráfico (gera automático se 'None')
+    - skip_steps: número de passos (steps) iniciais a serem desconsiderados no plot
+    """
+
+    if titulo is None:
+        titulo = f"Temperatura = {target_temp} K +/- {tol_temp}°\n2θ = {target_2theta}° +/- {tol_2theta}°"
+
+    dados_filtrados = {}
+
+    for i, linha in df_proc_final.iterrows():
+        nome = linha["nome"]
+        temp = linha["temperatura[K]"]
+        step =linha["step"]
+        df = linha["dados"]
+
+        if (target_temp - tol_temp) <= temp <= (target_temp + tol_temp) and step >= skip_steps:
+            df_filtro = df[
+                (df["2theta (degree)"] >= target_2theta - tol_2theta)
+                & (df["2theta (degree)"] <= target_2theta + tol_2theta)
+            ]
+
+            dados_filtrados[f"{temp:.3f} K"] = df_filtro["Intensity (a.u.)"].values
+
+
+    df_matrix = pd.DataFrame(dados_filtrados)
+    corr_matrix = df_matrix.corr(method="pearson")
+
+    fig, ax = plt.subplots(figsize=(8, 7), dpi=600)
+
+    heatmap = sns.heatmap(
+        corr_matrix,
+        ax=ax,
+        cmap="viridis",
+        annot=True,
+        fmt=".3f",
+        annot_kws={"size": 8},
+        square=True,
+        cbar_kws={
+            "shrink": 0.92,
+            "aspect": 13
+        }
+    )
+
+    cbar = heatmap.collections[0].colorbar
+    cbar.ax.tick_params(labelsize=8)
+
+    cbar.outline.set_edgecolor('black')
+    cbar.outline.set_linewidth(0.5)
+    cbar.set_label("Correlação de Pearson", labelpad=10)
+
+    ax.set_title(
+        titulo,
+        pad=15,
+        fontsize=12,
+    )
+
+    plt.xticks(rotation=45, ha="right", fontsize=9)
+    plt.yticks(fontsize=9)
+    plt.tight_layout()
+
     plt.show()
