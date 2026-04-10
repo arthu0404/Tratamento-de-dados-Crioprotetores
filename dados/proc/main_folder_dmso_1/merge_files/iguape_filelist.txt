@@ -1,4 +1,4 @@
-/ibira/lnls/beamlines/paineira/proposals/00000000/proc/REPROCESSED_June_2025/pimega_450d/2025/february/main_folder_dmso_1/merge_files
+/ibira/lnls/beamlines/paineira/proposals/00000000/proc/pimega_450d/2025/february/main_folder_dmso_1/merge_files
 DMSO_1_RAMP_290Kelvin_258_MERGE.csv
 1
 DMSO_1_RAMP_253Kelvin_260_MERGE.csv

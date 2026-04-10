@@ -1,4 +1,4 @@
-/ibira/lnls/beamlines/paineira/proposals/00000000/proc/REPROCESSED_June_2025/pimega_450d/2025/february/main_folder_eg_aquecimento/merge_files
+/ibira/lnls/beamlines/paineira/proposals/00000000/proc/pimega_450d/2025/february/main_folder_eg_aquecimento/merge_files
 EG_aquecimento_RAMP_195Kelvin_452_MERGE.csv
 1
 EG_aquecimento_RAMP_199Kelvin_454_MERGE.csv
@@ -30,6 +30,4 @@ EG_aquecimento_RAMP_276Kelvin_478_MERGE.csv
 EG_aquecimento_RAMP_282Kelvin_480_MERGE.csv
 1
 EG_aquecimento_RAMP_288Kelvin_482_MERGE.csv
-1
-EG_aquecimento_RAMP_295Kelvin_484_MERGE.csv
 1

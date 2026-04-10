@@ -1,0 +1,15 @@
+/ibira/lnls/beamlines/paineira/proposals/00000000/proc/REPROCESSED_June_2025/pimega_450d/2025/february/main_folder_sucrose_2_rodada/merge_files
+Sucrose_2_rodada_RAMP_251Kelvin_570_MERGE.csv
+1
+Sucrose_2_rodada_RAMP_259Kelvin_572_MERGE.csv
+1
+Sucrose_2_rodada_RAMP_266Kelvin_574_MERGE.csv
+1
+Sucrose_2_rodada_RAMP_272Kelvin_576_MERGE.csv
+1
+Sucrose_2_rodada_RAMP_278Kelvin_578_MERGE.csv
+1
+Sucrose_2_rodada_RAMP_285Kelvin_580_MERGE.csv
+1
+Sucrose_2_rodada_RAMP_291Kelvin_582_MERGE.csv
+1

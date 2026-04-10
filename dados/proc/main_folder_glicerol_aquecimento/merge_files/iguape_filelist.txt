@@ -1,4 +1,4 @@
-/ibira/lnls/beamlines/paineira/proposals/00000000/proc/REPROCESSED_June_2025/pimega_450d/2025/february/main_folder_glicerol_aquecimento/merge_files
+/ibira/lnls/beamlines/paineira/proposals/00000000/proc/pimega_450d/2025/february/main_folder_glicerol_aquecimento/merge_files
 glicerol_aquecimento_RAMP_193Kelvin_530_MERGE.csv
 1
 glicerol_aquecimento_RAMP_196Kelvin_532_MERGE.csv

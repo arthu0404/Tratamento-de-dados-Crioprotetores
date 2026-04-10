@@ -1,0 +1,9 @@
+/ibira/lnls/beamlines/paineira/proposals/00000000/proc/REPROCESSED_June_2025/pimega_450d/2025/february/main_folder_pg/merge_files
+PG_RAMP_287Kelvin_400_MERGE.csv
+1
+PG_RAMP_265Kelvin_402_MERGE.csv
+1
+PG_RAMP_243Kelvin_404_MERGE.csv
+1
+PG_RAMP_224Kelvin_406_MERGE.csv
+1
