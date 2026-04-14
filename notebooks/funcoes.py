@@ -217,7 +217,7 @@ def alinhar_por_temperatura(df_proc, df_calib):
 
 # ------------------------------------------------------------------------
 
-def plot_difracao(df_proc_final, titulo, offset_step=1e10, fig_size=(13, 20), usar_steps=False):
+def plot_difracao(df, titulo, offset_step=1e10, fig_size=None, usar_steps=False):
     """
     Plota as difrações empilhadas com coloração por temperatura.
 
@@ -229,7 +229,11 @@ def plot_difracao(df_proc_final, titulo, offset_step=1e10, fig_size=(13, 20), us
     - usar_steps: se True, eixo da direita mostra steps em vez de temperatura
     """
 
-    temperaturas = df_proc_final["temperatura[K]"].values
+    altura = max(5, int(df.shape[0] * 0.5))
+    if fig_size is None:
+        fig_size = (13, altura)
+
+    temperaturas = df["temperatura[K]"].values
     temp_min = min(temperaturas)
     temp_max = max(temperaturas)
     
@@ -243,7 +247,7 @@ def plot_difracao(df_proc_final, titulo, offset_step=1e10, fig_size=(13, 20), us
     offsets = []
     labels_y = []
     
-    for i, linha in df_proc_final.iterrows():
+    for i, linha in df.iterrows():
         temp = linha["temperatura[K]"]
         df = linha["dados"]
         X = df["2theta (degree)"]
@@ -284,13 +288,16 @@ def plot_difracao(df_proc_final, titulo, offset_step=1e10, fig_size=(13, 20), us
     
     # Colorbar
     sm = plt.cm.ScalarMappable(cmap=cmap, norm=norm)
-    cbar = fig.colorbar(sm, ax=ax1, pad=0.12, aspect=25)
+
+    fig.subplots_adjust(right=0.82)
+    cax = fig.add_axes([0.90, 0.11, 0.04, 0.77])
+    cbar = fig.colorbar(sm, cax=cax)
     cbar.set_label("Temperature (K)", labelpad=10)
     cbar.ax.yaxis.set_minor_locator(AutoMinorLocator())
     cbar.ax.tick_params(which="major", direction="out", length=5, width=1)
     cbar.ax.tick_params(which="minor", direction="out", length=3, width=0.8)
     
-    plt.show()
+    return fig
 
 # ------------------------------------------------------------------------
 
@@ -331,7 +338,7 @@ def plot_matriz_corr(target_temp, tol_temp, target_2theta, tol_2theta, df_proc_f
     df_matrix = pd.DataFrame(dados_filtrados)
     corr_matrix = df_matrix.corr(method="pearson")
 
-    fig, ax = plt.subplots(figsize=(8, 7), dpi=600)
+    fig, ax = plt.subplots(figsize=(8, 7), dpi=300)
 
     heatmap = sns.heatmap(
         corr_matrix,
