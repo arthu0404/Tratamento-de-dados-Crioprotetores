@@ -364,4 +364,49 @@ def plot_matriz_corr(target_temp, tol_temp, target_2theta, tol_2theta, df_proc_f
     plt.yticks(fontsize=9)
     plt.tight_layout()
 
-    plt.show()
+    return fig
+
+# ------------------------------------------------------------------------
+
+def plot_temperatura_taxa(df, col_tempo="tempo_decorrido[s]", col_temp="temperatura[K]", titulo="Temperatura e Taxa de Variação x Tempo"):
+    """
+    Plota a variação de temperatura e sua taxa de aquecimento/resfriamento ao longo do tempo.
+
+    Parâmetros:
+    - df: DataFrame contendo os dados (ex: df_proc ou df_calib)
+    - col_tempo: nome da coluna de tempo em segundos
+    - col_temp: nome da coluna de temperatura em Kelvin
+    - titulo: título principal do gráfico
+    """
+    
+    X_tempos = df[col_tempo].values
+    y_temps = df[col_temp].values
+
+    taxas = np.gradient(y_temps, X_tempos) * 60
+
+    fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(10, 8), dpi=600, sharex=True)
+
+    # Plot 1 - Temperatura x Tempo
+    ax1.plot(X_tempos, y_temps, color="dodgerblue", linewidth=1.2)
+    ax1.set_ylabel('Temperatura (K)', fontsize=12)
+    ax1.set_title(titulo, fontsize=16)
+    ax1.grid(which="major", linestyle='--', linewidth=0.6, alpha=0.5)
+
+    ax1.xaxis.set_minor_locator(AutoMinorLocator(6))
+    ax1.yaxis.set_minor_locator(AutoMinorLocator(6))
+    ax1.tick_params(axis='both', which='major', direction="out", length=8, width=1)
+    ax1.tick_params(axis='both', which='minor', direction="out", length=4, width=0.7)
+
+    # Plot 2 - Taxa de variação x Tempo
+    ax2.plot(X_tempos, taxas, color="crimson", linewidth=1.2)
+    ax2.set_xlabel('Tempo decorrido (s)', fontsize=12)
+    ax2.set_ylabel('Taxa (K/min)', fontsize=12)
+    ax2.grid(which="major", linestyle='--', linewidth=0.6, alpha=0.5)
+
+    ax2.xaxis.set_minor_locator(AutoMinorLocator(6))
+    ax2.yaxis.set_minor_locator(AutoMinorLocator(6))
+    ax2.tick_params(axis='both', which='major', direction="out", length=8, width=1)
+    ax2.tick_params(axis='both', which='minor', direction="out", length=4, width=0.7)
+
+    plt.tight_layout()
+    return fig
