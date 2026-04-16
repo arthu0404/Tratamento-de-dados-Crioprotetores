@@ -1,0 +1,5 @@
+/ibira/lnls/beamlines/paineira/proposals/00000000/proc/pimega_450d/2025/february/main_folder_glicerol/merge_files
+glicerol_RAMP_287Kelvin_518_MERGE.csv
+1
+glicerol_RAMP_266Kelvin_520_MERGE.csv
+1
