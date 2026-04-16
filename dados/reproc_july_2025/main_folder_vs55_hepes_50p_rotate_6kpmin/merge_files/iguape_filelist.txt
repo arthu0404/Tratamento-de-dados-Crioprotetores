@@ -1,9 +1,0 @@
-/ibira/lnls/beamlines/paineira/proposals/20241630/proc/REPROCESSED_July_2025/pimega_450d/2025/march/main_folder_vs55_hepes_50p_rotate_6kpmin/merge_files
-vs55_hepes_50p_rotate_6kpmin_RAMP_297Kelvin_1182_MERGE.csv
-1
-vs55_hepes_50p_rotate_6kpmin_RAMP_291Kelvin_1184_MERGE.csv
-1
-vs55_hepes_50p_rotate_6kpmin_RAMP_286Kelvin_1186_MERGE.csv
-1
-vs55_hepes_50p_rotate_6kpmin_RAMP_280Kelvin_1188_MERGE.csv
-1
