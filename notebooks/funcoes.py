@@ -267,7 +267,7 @@ def plot_difracao(df, titulo, offset_step=1e10, fig_size=None, usar_steps=False)
     ax1.set_xlabel("2theta (degree)")
     ax1.set_ylabel("Intensity + offset (a.u.)")
     ax1.set_xlim(0)
-    ax1.set_ylim(bottom=0, top=offset)
+    ax1.set_ylim(bottom=0, top=offset+(offset_step*3/2))
     ax1.set_yticks([])
     
     ax1.xaxis.set_minor_locator(AutoMinorLocator())
