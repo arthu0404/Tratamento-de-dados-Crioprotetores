@@ -88,15 +88,21 @@ def faz_todos_plots(base_input_dir, output_dir, calib_file_path, periodo_aqu=23.
 # OBS: pode ocorrer o erro [Errno 2] devio ao tamnho do caminho maior que 260 caracteres
 # se isso acontecer os caminhos devem ser encurtados
 faz_todos_plots(
-    base_input_dir="../dados/reproc_july_2025",
-    output_dir="../dados/extracted/plots_reproc_july_2025",
-    calib_file_path="../dados/extracted/tabela_extraida_calib_temp.csv",
+    base_input_dir="dados/reproc_july_2025",
+    output_dir="dados/extracted/plots_reproc_july_2025",
+    calib_file_path="dados/extracted/tabela_extraida_calib_temp.csv",
 )
 
 # --- Plot dos dados reporcessados de junho de 2024 ('reproc_jun_2024')
 faz_todos_plots(
-    base_input_dir="../dados/reproc_jun_2024",
-    output_dir="../dados/extracted/plots_reproc_jun_2024",
-    calib_file_path="../dados/extracted/tabela_extraida_calib_temp.csv",
+    base_input_dir="dados/reproc_jun_2024",
+    output_dir="dados/extracted/plots_reproc_jun_2024",
+    calib_file_path="dados/extracted/tabela_extraida_calib_temp.csv",
 )
 
+# --- Plot dos dados de high_throughput
+faz_todos_plots(
+    base_input_dir="dados/high_throughput",
+    output_dir="dados/extracted/plots_high_throughput",
+    calib_file_path="dados/extracted/tabela_extraida_calib_temp.csv",
+)

@@ -19,29 +19,51 @@ def extrair_dados_proc(path_proc, periodo_aqu):
     - df_proc: DataFrame com colunas ["nome", "temperatura[K]", "step", "dados", "tempo_decorrido[s]"]
     """
 
+    import re
+
     files_data_proc = []
 
     for path_arquivo_csv in glob(f"{path_proc}/*.csv"):
-        df = pd.read_csv(path_arquivo_csv, skiprows=17  )
-        nome = os.path.basename(path_arquivo_csv).replace(".csv", "")
+        try:
+            df = pd.read_csv(path_arquivo_csv, skiprows=17)
+            nome = os.path.basename(path_arquivo_csv).replace(".csv", "")
 
-        partes = nome.split("_")
-        for parte in partes:
-            if "Kelvin" in parte:
-                temp = parte.replace("Kelvin", "")
+            partes = nome.split("_")
 
-        step = int(nome.split("_")[-2])
+            temp = None
+            for parte in partes:
+                if "Kelvin" in parte:
+                    temp = parte.replace("Kelvin", "")
 
-        files_data_proc.append(
-            {"nome": nome, "temperatura[K]": float(temp), "step": step, "dados": df}
-        )
+            if temp is None:
+                raise ValueError(f"Temperatura não encontrada: {nome}")
+
+            match = re.search(r"_(\d+)_MERGE$", nome)
+            if match:
+                step = int(match.group(1))
+            else:
+                raise ValueError(f"Step não encontrado: {nome}")
+
+            files_data_proc.append(
+                {
+                    "nome": nome,
+                    "temperatura[K]": float(temp),
+                    "step": step,
+                    "dados": df,
+                }
+            )
+
+        except Exception as e:
+            print(f"Erro no arquivo {path_arquivo_csv}: {e}")
+
+    if len(files_data_proc) == 0:
+        raise ValueError(f"Nenhum arquivo válido em: {path_proc}")
 
     df_proc = pd.DataFrame(files_data_proc)
     df_proc = df_proc.sort_values(by="step").reset_index(drop=True)
     df_proc["tempo_decorrido[s]"] = df_proc.index * periodo_aqu
 
     return df_proc
-
 # ------------------------------------------------------------------------
 
 def corrigir_anomalia(targets_2theta, tol_2theta, idx_range, df_proc):
