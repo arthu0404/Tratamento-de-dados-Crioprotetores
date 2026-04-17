@@ -3,6 +3,9 @@ __pycache__/
 *.py[codz]
 *$py.class
 
+# meus arquivos
+meu.ipynb
+
 # C extensions
 *.so
 
