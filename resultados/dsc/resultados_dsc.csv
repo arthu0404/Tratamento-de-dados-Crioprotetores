@@ -1,0 +1,17 @@
+Amostra;Evento;Temp. Característica (K);Onset (K);Endset (K);Fluxo de Calor (mW/mg)
+Vs55 (Hepes);Tg (Aquec.);152,63;149,91;155,33;0,27
+Vs55 (Hepes);Tc, pico;212,06;192,16;244,45;0,28
+Vs55 (Hepes);Tm, pico;233,48;192,16;244,45;0,73
+Vs55 (Hepes);Tg (Resf.);146,74;155,57;139,26;-0,25
+Dp6 (Hepes);Tg (Aquec.);156,33;150,25;165,8;0,32
+Dp6 (Hepes);Tc, pico;205,19;192,9;243,16;-0,25
+Dp6 (Hepes);Tm, pico;244,89;216,27;253,03;0,98
+Dp6 (Hepes);Tg (Resf.);150,67;156,41;144,29;-0,32
+Veg (Hepes);Tg (Aquec.);146,93;144,2;149,42;0,26
+Veg (Hepes);Tc, pico;194,99;182,63;206,89;-0,22
+Veg (Hepes);Tm, pico;234,57;222,21;244,0;0,8
+Veg (Hepes);Tg (Resf.);142,32;145,59;137,7;-0,25
+Glicerol (Hepes);Tg (Aquec.);160,78;157,26;164,0;0,3
+Glicerol (Hepes);Tc, pico;181,67;164,18;191,21;-1,63
+Glicerol (Hepes);Tm, pico;249,68;221,01;255,93;1,19
+Glicerol (Hepes);Tg (Resf.);154,78;167,13;144,59;-0,29
